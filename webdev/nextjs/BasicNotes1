@@ -1,0 +1,105 @@
+- difference betwee  page.tsx and layout.tsx
+
+1. page.tsx
+Purpose: This file represents an individual page component in your Next.js application. It is used to define the content and behavior of a specific page. For instance, if you're creating a homepage, you'd put the content for the homepage in a page.tsx file.
+Location: It is typically found inside the folder corresponding to the route. For example, the app/home/page.tsx file would define the content of the /home route.
+Rendering: When a user navigates to a specific route, Next.js looks for the corresponding page.tsx file to render the content.
+Usage: Contains the logic and JSX markup for what should be displayed when the route is visited.
+
+
+
+2. layout.tsx
+Purpose: layout.tsx is used to define the shared structure or layout for a group of pages. It is useful for wrapping multiple pages with common UI elements, such as headers, footers, sidebars, or other reusable components.
+Location: It is typically placed in the root of a folder where it applies to all subroutes. For instance, app/layout.tsx would be the layout for all pages, while app/home/layout.tsx would apply only to pages within the /home route.
+Rendering: When a user navigates to a route, Next.js will first render the layout.tsx (if available) and then insert the page's content inside of it.
+Usage: Used for components that should be present on every page in a section, like navigation bars or footers.
+
+
+
+
+- what is root layout?
+The root layout is defined at the top level of the app directory and applies to all routes. This layout is required and must contain html and body tags, allowing you to modify the initial HTML returned from the server.
+
+
+- what is linking?
+There are four ways to navigate between routes in Next.js:
+
+Using the <Link> Component
+Using the useRouter hook (Client Components)
+Using the redirect function (Server Components)
+Using the native History API
+
+1. Link component
+The <Link> component is used to create links between pages. It is a client-side solution,
+<Link> is a built-in component that extends the HTML <a> tag to provide prefetching and client-side navigation between routes.
+
+Syntax- 
+
+import Link from 'next/link' 
+export default function Page() {
+  return <Link href="/dashboard">Dashboard</Link>
+}
+
+2. useRouter() hook
+Provides the ability to navigate programmatically within your application. It allows navigation in response to events or conditions rather than static links.
+
+Syntax-
+
+'use client'
+ 
+import { useRouter } from 'next/navigation'
+ 
+export default function Page() {
+  const router = useRouter()
+ 
+  return (
+    <button type="button" onClick={() => router.push('/dashboard')}>
+      Dashboard
+    </button>
+  )
+}
+
+3. redirect function
+For Server Components, use the redirect function instead.
+
+Syntax-
+import { redirect } from 'next/navigation'
+ 
+async function fetchTeam(id: string) {
+  const res = await fetch('https://...')
+  if (!res.ok) return undefined
+  return res.json()
+}
+ 
+export default async function Profile({ params }: { params: { id: string } }) {
+  const team = await fetchTeam(params.id)
+  if (!team) {
+    redirect('/login')
+  }
+ 
+  // ...
+}
+
+4. Native History API
+
+The Native History API is a part of the Web History API, which allows web applications to interact with the browser’s history stack. This API provides methods to manipulate the browser history, enabling more dynamic and responsive single-page applications (SPAs) by allowing navigation without full-page reloads.
+Syntax-
+
+import { redirect } from 'next/navigation'
+ 
+async function fetchTeam(id: string) {
+  const res = await fetch('https://...')
+  if (!res.ok) return undefined
+  return res.json()
+}
+ 
+export default async function Profile({ params }: { params: { id: string } }) {
+  const team = await fetchTeam(params.id)
+  if (!team) {
+    redirect('/login')
+  }
+ 
+  // ...
+}
+
+
