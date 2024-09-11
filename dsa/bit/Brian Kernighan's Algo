@@ -1,0 +1,1 @@
+Brian Kernighan’s algorithm is a method for counting the number of 1s (set bits) in the binary representation of an integer. It's efficient and works by repeatedly clearing the lowest set bit in the number.
