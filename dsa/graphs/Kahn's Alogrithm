@@ -1,0 +1,15 @@
+Kahn's Algorithm is a technique used to perform topological sorting on a directed acyclic graph (DAG). Topological sorting orders the vertices of the graph such that for every directed edge u -> v, vertex u appears before vertex v in the ordering.
+
+Kahn's Algorithm uses in-degree (the number of incoming edges to a vertex) to achieve this, and it proceeds by repeatedly removing vertices with zero in-degree.
+
+Kahn's Algorithm uses in-degree (the number of incoming edges to a vertex) to achieve this, and it proceeds by repeatedly removing vertices with zero in-degree.
+
+Steps of Kahn's Algorithm:
+Calculate In-degrees: Compute the in-degree for each vertex in the graph.
+Queue Initialization: Add all vertices with in-degree 0 (those with no dependencies) to a queue.
+Processing:
+Dequeue a vertex from the queue, append it to the result list (topological order).
+For each adjacent vertex (neighbor), reduce its in-degree by 1. If the in-degree of a neighbor becomes 0, add it to the queue.
+Check for Cycles: If, at the end, there are still vertices left with non-zero in-degree, the graph contains a cycle, and topological sorting is not possible.
+Time Complexity:
+O(V + E) where V is the number of vertices and E is the number of edges. This is because each vertex is processed once, and each edge is processed once during the in-degree reduction.
