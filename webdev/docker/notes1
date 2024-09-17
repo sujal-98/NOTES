@@ -1,0 +1,13 @@
+Dockerizing refers to the process of packaging an application and its dependencies into a Docker container. This makes the application portable and ensures it can run consistently across different environments (such as on different machines or in the cloud).
+
+Here’s what happens when you dockerize an application:
+
+Encapsulation: The application, along with all of its libraries, environment variables, and dependencies, is bundled into a single unit called a container.
+
+Isolation: Each Docker container runs in its own isolated environment, meaning that multiple applications can run on the same host without conflicting with each other (e.g., conflicting software versions).
+
+Portability: Since Docker containers are standardized, they can run on any system that has Docker installed, ensuring the same behavior regardless of the host environment (whether it's your local machine, a server, or a cloud platform).
+
+Efficiency: Containers are lightweight compared to virtual machines because they share the host operating system's kernel, making them quicker to start and more efficient in resource usage.
+
+To dockerize an application, you typically create a Dockerfile, which contains instructions for how the container should be built, such as which base image to use, how to install dependencies, and how to run the application.
