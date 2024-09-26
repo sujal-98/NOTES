@@ -2,6 +2,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 class TrieNode {
+//Trie Node Class
+// Each node in the Trie contains:
+
+// children: An array of size 26 (assuming only lowercase English letters) to store references to child nodes.
+// isEndOfWord: A boolean flag to indicate if the node represents the end of a valid word.
+// Trie Class
+// The Trie class contains methods to:
+
+// insert: Add a word into the Trie.
+// search: Check if a word exists in the Trie.
+// startsWith: Check if there is any word in the Trie that starts with a given prefix.
+
+
+    
+    
     // Each TrieNode can have multiple children, one for each character.
     Map<Character, TrieNode> children;
     // To mark the end of a word
