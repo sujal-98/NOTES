@@ -14,6 +14,26 @@ class Subset {
 };
 
 public class KruskalMST {
+// Kruskal's algorithm is a greedy algorithm used to find the Minimum Spanning Tree (MST) of a graph. The MST is a subset of edges that connects all vertices in the graph without any cycles and with the minimum possible total edge weight. Kruskal's algorithm works by sorting edges and incrementally adding them to form the MST, always picking the smallest edge that doesn't form a cycle.
+
+// Key Concepts:
+// Spanning Tree: A subgraph that connects all vertices with the minimum number of edges (for a graph with n vertices, the spanning tree has n - 1 edges).
+// Minimum Spanning Tree: A spanning tree with the smallest sum of edge weights.
+// Cycle Detection: This is essential to avoid creating loops in the graph while building the MST. Kruskal uses the Disjoint Set Union (DSU) (also called Union-Find) data structure to help detect cycles efficiently.
+// Steps of Kruskal's Algorithm:
+// Sort all edges in the graph by their weight in ascending order.
+// Initialize an empty MST (a set of edges).
+// Use a Disjoint Set Union (DSU) data structure to manage connected components:
+// Each vertex is initially its own component.
+// As edges are added, union the components that the vertices of the edge belong to.
+// Iterate through the sorted edges:
+// For each edge, check if its vertices belong to different components (i.e., they are not yet connected).
+// If they are in different components, add the edge to the MST and union the components.
+// If they are in the same component, skip the edge (to avoid cycles).
+// Stop when the MST contains n - 1 edges, where n is the number of vertices in the graph.
+
+
+    
     int vertices, edges;    // Number of vertices and edges
     Edge[] edge;            // Array of edges
 
