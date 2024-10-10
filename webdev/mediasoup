@@ -1,0 +1,9 @@
+
+mediasoup is a powerful, low-level Node.js framework used for building WebRTC-based applications, such as video conferencing systems, live streaming platforms, and real-time collaboration tools. I
+
+For example, in a video conference, instead of every participant sending their video to all others, they send their stream to the mediasoup server, which relays the streams to the right participants. This reduces the amount of bandwidth each client needs.
+Low-level API
+Mediasoup gives developers fine control over the behavior of WebRTC transport, media streams, and data channels. It exposes a low-level API, allowing developers to manage how media is handled (encoding, forwarding, etc.), making it ideal for advanced use cases like custom video layouts, audio routing, and selective stream forwarding.
+
+An SFU (Selective Forwarding Unit) receives audio and video streams from endpoints and relays them to everyone else (endpoints send one and receive many). Each receiver endpoint can select which streams and spatial/temporal layers it receives. Compared to a mixer or MCU (Multipoint Conferencing Unit) this design leads to a better performance, higher throughput and less latency. It's highly scalable and requires much less resources given that it does not transcode or mix media.
+
